@@ -1,0 +1,2 @@
+class Rippple < ApplicationRecord
+end
