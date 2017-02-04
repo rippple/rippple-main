@@ -1,1 +1,11 @@
-<h1>Welcome to Rippple.us</h1>
+<% if @rippples.present? %>
+  <% @rippples.each do |rippple| %>
+    <div class='title'><%= rippple.title %></div>
+    <div class='date'><%= rippple.created_at.strftime('%b %d, %Y') %></div>
+  <% end %>
+<% else %>
+<div class='wrapper'>
+  <p class='center'>Sorry, there don't seem to be any rippples showing up yet.</p>
+</div>
+<%= @content %>
+<% end %>

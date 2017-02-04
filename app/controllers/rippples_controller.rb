@@ -52,6 +52,7 @@ class RippplesController < ApplicationController
     end
   end
 
+
   private
 
   def rippple_params
