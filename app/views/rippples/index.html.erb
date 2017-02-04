@@ -1,21 +1,18 @@
-<div class="container">
-  <div class="col-sm-10 col-sm-offset-1 col-xs-12 blog-content">
-    <% @rippples.each do |rippple| %>
-    <div class="col-xs-12">
-      <div class="text-center">
-        <h2><%= rippple.title %></h2>
-        <h6><%= rippple.created_at.strftime('%b %d, %Y') %></h6>
-      </div>
 
-      <div>
-        <%= raw(rippple.body).truncate(358) %>
+<div class='wrapper'>
+  <% @rippples.each do |r| %>
+    <div class='rippple-container'>
+      <h2><%= r.title %></h2>
+      <em><%= r.created_at.strftime('%b %d, %Y') %></em>
+      <!-- add auth here -->
+      <div class='admin-tools'>
+        <%= link_to edit_rippple_path(r) do %>
+          <i class='fa fa-pencil'></i>
+        <% end %>
+        <%= link_to r, :method => :delete do %>
+          <i class='fa fa-trash'></i>
+        <% end %>
       </div>
-
-      <div class="text-center">
-        <%= link_to "READ MORE", rippple_path(rippple) %>
-      </div>
-      <br>
     </div>
-    <% end %>
-  </div>
+  <% end %>
 </div>
