@@ -3,20 +3,23 @@ class RippplesController < ApplicationController
 
   # Index action to render all Rippples
   def index
+    @page_title = "View"
     @rippples = Rippple.all
   end
 
   # New action for creating Rippple
   def new
+    @page_title = "New"
     @rippple = Rippple.new
   end
 
   # Create action saves the Rippple into database
   def create
+    @page_title = "Create"
     @rippple = Rippple.new
     if @rippple.save(rippple_params)
       flash[:notice] = "Successfully created Rippple!"
-      redirect_to rippple_path(@rippple)
+      redirect_to rippple_path(@rippples)
     else
       flash[:alert] = "Error creating new Rippple!"
       render :new
@@ -25,13 +28,14 @@ class RippplesController < ApplicationController
 
   # Edit action retrives the Rippple and renders the edit page
   def edit
+    @page_title = "Edit"
   end
 
   # Update action updates the Rippple with the new information
   def update
     if @rippple.update_attributes(rippple_params)
       flash[:notice] = "Successfully updated Rippple!"
-      redirect_to rippple_path(@rippples)
+      redirect_to @rippple
     else
       flash[:alert] = "Error updating Rippple!"
       render :edit
@@ -59,7 +63,7 @@ class RippplesController < ApplicationController
     params.require(:rippple).permit(:title, :body)
   end
 
-  def find_Rippple
+  def find_rippple
     @rippple = Rippple.find(params[:id])
   end
 end

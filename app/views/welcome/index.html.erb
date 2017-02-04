@@ -1,7 +1,7 @@
 <% if @rippples.present? %>
-  <% @rippples.each do |rippple| %>
-    <div class='title'><%= rippple.title %></div>
-    <div class='date'><%= rippple.created_at.strftime('%b %d, %Y') %></div>
+  <% @rippples.each do |r| %>
+    <div class='date'><%= r.created_at.strftime('%b %d, %Y') %></div>
+    <div class='title'><%= r.title %></div>
   <% end %>
 <% else %>
 <div class='wrapper'>
