@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rippple Main</title>
+    <title>
+      <% if @page_title.present? %>
+        <%= @page_title %> | Rippple
+      <% else %>
+        Rippple
+      <% end %>
+    </title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>

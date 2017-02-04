@@ -1,1 +1,20 @@
-Awesome navbar here 
+
+<div class='navbar'>
+  <nav class='hidden-menu'>
+    <%= link_to "Home", root_path %>
+    <%= link_to "Rippples", rippples_path %>
+    <%= link_to "Rippplers", root_path %> <!-- show all senators for v1 -->
+    <%= link_to "About us", root_path %>
+    <%= link_to "Contact", root_path %>
+  </nav>
+  <div class='navbtn'>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <%= link_to root_path, class: "logo" do %>
+    <%= image_tag("rippple-logo.svg") %>
+  <% end %>
+</div>
+<!-- make the height equal to the height of the navbar -->
+<div class='space-under'></div>
