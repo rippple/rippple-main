@@ -9,3 +9,7 @@ $(document).ready(function() {
     navbar.removeClass("navbar-down");
   })
 });
+
+$(document).on('ready page:change', function() {
+  $('.report-tooltip').tooltip();
+});

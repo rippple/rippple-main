@@ -5,15 +5,20 @@
       <h2><%= r.title %></h2>
       <em><%= r.created_at.strftime('%b %d, %Y') %></em>
       <!-- add auth here -->
-      <div class='admin-tools'>
-        <%= link_to edit_rippple_path(r) do %>
-          <i class='fa fa-pencil'></i>
+      <% if admin_signed_in? %>
+        <div class='admin-tools'>
+          <%= link_to edit_rippple_path(r) do %>
+            <i class='fa fa-pencil'></i>
+          <% end %>
+          <%= link_to r, :method => :delete do %>
+            <i class='fa fa-trash'></i>
+          <% end %>
+        </div>
+      <% elsif user_signed_in? or !user_signed_in? or !admin_signed_in? %>
+        <%= link_to root_path, class: "report-tooltip", title: "Report this link", 'data-toggle' => 'tooltip', 'data-placement' => 'right' do %>
+          <i class='fa fa-bell-o'></i>
         <% end %>
-        <%= link_to r, :method => :delete do %>
-          <i class='fa fa-trash'></i>
-        <% end %>
-        
-      </div>
+      <% end %>
     </div>
   <% end %>
 </div>

@@ -5,6 +5,8 @@ class RippplesController < ApplicationController
   def index
     @page_title = "View"
     @rippples = Rippple.all
+
+    @tooltips = ["Report this link", "Edit", "Delete"]
   end
 
   # New action for creating Rippple
